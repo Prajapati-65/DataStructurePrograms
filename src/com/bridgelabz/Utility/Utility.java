@@ -156,7 +156,7 @@ public class Utility {
 		double d0 = (D + x + (31 * m0 / 12)) % 7;
 		return (int) d0;
 	}
-	
+
 	/**
 	 * 
 	 * @param create
@@ -169,8 +169,8 @@ public class Utility {
 			return (number * fact(number - 1));
 		}
 		return 1;
-	} 
-	
+	}
+
 	/**
 	 * @param create
 	 *            a function of catalan number Cn=2n!/(n+1)!n!;
@@ -241,11 +241,12 @@ public class Utility {
 			System.out.println();
 		}
 	}
-	
+
 	/**
 	 * 
 	 */
 	Queue queue = new LinkedList<>();
+
 	public void deposit() {
 		int balance = 0;
 		System.out.println("Enter the account number:");
@@ -290,5 +291,30 @@ public class Utility {
 			queue.remove();
 		}
 	}
-	
+
+	/**
+	 * @param input month
+	 * @param input day
+	 * @param input year
+	 * @return integer
+	 */
+	public int day(int month, int day, int year) {
+		int y = year - (14 - month) / 12;
+		int x = y + y / 4 - y / 100 + y / 400;
+		int m = month + 12 * ((14 - month) / 12) - 2;
+		int d = (day + x + (31 * m) / 12) % 7;
+		return d;
+	}
+
+	/**
+	 * @param input year
+	 * @return boolean
+	 */
+	public boolean isLeapYear(int year) {
+		if ((year % 4 == 0) && (year % 100 != 0))
+			return true;
+		if (year % 400 == 0)
+			return true;
+		return false;
+	}
 }

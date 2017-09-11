@@ -1,6 +1,5 @@
 package com.bridgelabz.Programs;
 
-import java.text.DateFormatSymbols;
 import com.bridgelabz.Utility.Utility;
 
 /**
@@ -10,14 +9,26 @@ import com.bridgelabz.Utility.Utility;
 public class Calendar {
 
 	public static void main(String[] args) {
-		Utility  utility = new Utility();
-		System.out.print("Enter month and year: ");
+		Utility utility = new Utility();
+		System.out.print("Enter month : ");
 		int month = utility.inputInteger();
+		System.out.print("Enter year : ");
 		int year = utility.inputInteger();
-		System.out.println("\n" + (new DateFormatSymbols().getMonths()[month - 1])
-				+ " " + year + "\n");
-		System.out.println("Su\tM\tT\tW\tTh\tF\tSa");
-		utility.fillArray(month, year);
-		utility.print();
+		String[] months = { "", "January", "February", "March", "April", "May", "June", "July", "August", "September",
+				"October", "November", "December" };
+		int[] days = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+		if (month == 2 && utility.isLeapYear(year))
+			days[month] = 29;
+		System.out.println("  " + months[month] + " " + year);
+		System.out.println(" S  M Tu  W Th  F  S");
+		int d = utility.day(month, 1, year);
+		for (int i = 0; i < d; i++)
+			System.out.println(" ");
+		for (int i = 1; i <= days[month]; i++) {
+			System.out.print(" " + i);
+			if (((i + d) % 7 == 0) || (i == days[month])) {
+				System.out.println(" ");
+			}
+		}
 	}
 }
