@@ -37,6 +37,8 @@ public class MyDeque<T> {
 		return myLinkedList.size();
 	}
 
+	
+	
 	public boolean checkPalindrome(String stringToCheck) {
 		MyDeque<Character> myDeque = new MyDeque<Character>();
 		char[] stringCharacterArray = stringToCheck.toCharArray();
@@ -48,6 +50,7 @@ public class MyDeque<T> {
 			if (character != myDeque.removeFront()) {
 				return false;
 			}
+			return true;
 		}
 		return true;
 	}

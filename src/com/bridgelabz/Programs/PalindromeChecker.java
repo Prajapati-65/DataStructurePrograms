@@ -13,6 +13,7 @@ public class PalindromeChecker {
 		String stringToCheck = utility.inputString();
 		MyDeque<Character> myDeque = new MyDeque<Character>();
 		System.out.println();
+		
 		if (myDeque.checkPalindrome(stringToCheck)) {
 			System.out.println("Given string is a palindrome");
 		} else {

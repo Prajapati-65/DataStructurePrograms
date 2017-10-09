@@ -14,11 +14,12 @@ import java.util.Scanner;
 public class UnOrderedList {
 
 	public static void main(String[] args) {
+		
 		MyLinkedList<String> myLinkedList = new MyLinkedList<String>();
 		String[] strings;
 		BufferedReader bufferedReader = null;
 		try {
-			FileReader fileReader = new FileReader("/home/bridgeit/Public/file/unordered.txt");
+			FileReader fileReader = new FileReader("/home/bridgelabz/Public/file/unordered.txt");
 			bufferedReader = new BufferedReader(fileReader);
 			String line;
 			while ((line = bufferedReader.readLine()) != null) {
@@ -57,7 +58,7 @@ public class UnOrderedList {
 		}
 		try {
 			int size = myLinkedList.size();
-			PrintWriter printWriter = new PrintWriter("/home/bridgeit/Public/file/unordered.txt");
+			PrintWriter printWriter = new PrintWriter("/home/bridgelabz/Public/file/unordered.txt");
 			for (int i = 0; i < size; i++) {
 				String st = myLinkedList.pop(0);
 				printWriter.write(st + " ");
